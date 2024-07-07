@@ -22,4 +22,3 @@ genres = sorted(genres)
 
 
 # Video games format: name, platform, r-date, score,  user score, developer, genre, players, critics, users
-print(video_games[0])
