@@ -1,7 +1,5 @@
 import pandas as pd
 
-# print(date[-4:])
-# name, platform, r-date, score, genre, players
 games = pd.read_csv('games-data.csv')
 video_games = []
 for index,game in games.iterrows():
@@ -15,16 +13,13 @@ for game in video_games:
     for genre in game['genre'].split(','):
         genres.add(genre.strip())
     platforms.add(game['platform'])
-    # platforms.add(game['platform'])
-    # genres.add(game['genre'])
 
-# platforms = list(platforms)
-# genres = list(genres)
-
-# print(platforms,'\n')
-# print(genres)
 platforms = list(platforms)
 genres = list(genres)
 
 platforms = sorted(platforms)
 genres = sorted(genres)
+
+
+# Video games format: name, platform, r-date, score,  user score, developer, genre, players, critics, users
+print(video_games[0])

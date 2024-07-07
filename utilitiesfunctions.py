@@ -69,8 +69,8 @@ def get_filter_by(filters_priority):
     platform_filters = []
     year_filter = None
     score_filter = None
-    year_filters = ['Newest', 'Oldest', 'Specific Range', 'Specific Value']
-    score_filters = ['Highest', 'Lowest', 'Specific Range', 'Specific Value']
+    year_filters = ['Specific Range', 'Specific Value']
+    score_filters = ['Specific Range', 'Specific Value']
     for filter in filters_priority:
         if filter == 'genre':
             print(f"You have selected to filter by {filter}. Please choose which {filter} or {filter}s you want to filter by in the order of importance. First being most important and last the least important\n")
@@ -85,11 +85,11 @@ def get_filter_by(filters_priority):
             platforms.remove("No Other Filters")
         
         elif filter == 'year':
-            print(f"You have selected to filter by {filter}. Please choose whether to filter by newest, oldest, specific range, or year\n")
+            print(f"You have selected to filter by {filter}. Please choose whether to filter by a specific range of years or specific year\n")
             year_filter = select_filter_list(year_filters, one_response=True)
         
         elif filter == 'score':
-            print(f"You have selected to filter by {filter}. Please choose whether to filter by highest, lowest, specific range, or review\n")
+            print(f"You have selected to filter by {filter}. Please choose whether to filter by a specific range of scores or a specific score\n")
             score_filter = select_filter_list(score_filters, one_response=True)
     return genre_filters, platform_filters, year_filter, score_filter
 
@@ -144,6 +144,9 @@ def get_number_filter_traits(number_filter, filter_type):
             else:
                 print("The newest release year must be more recent than the oldest release year!")
                 return get_number_filter_traits(number_filter, filter_type)
+        elif number_filter == 'Specific Value':
+            year_desired = get_release_year("Enter the year you would like to see: ")
+            return year_desired
     elif filter_type == 's':
         if number_filter == 'Specific Range':
             upper_bound = get_score("Enter the highest score you would like to see: ")
@@ -153,3 +156,6 @@ def get_number_filter_traits(number_filter, filter_type):
             else:
                 print("The highest score must be greater than the lowest score")
                 return get_number_filter_traits(number_filter, filter_type)
+        elif number_filter == 'Specific Value':
+            score_desired = get_score("Enter the score every game must have to be shown: ")
+            return score_desired
