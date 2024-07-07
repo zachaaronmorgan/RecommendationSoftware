@@ -34,3 +34,4 @@ if genre_filters_priority:
 
 if platform_filters_priority:
     print(f"You have selected to filter platform by {platform_filters_priority}")
+
