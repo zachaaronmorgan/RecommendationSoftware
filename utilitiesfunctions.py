@@ -3,7 +3,7 @@ import inquirer
 import re
 from datetime import datetime as dt
 
-def welcome_message():
+def welcome_message(): 
     print("Hello and welcome to Video Game Recommender 1.0!")
 
 def select_filter(filter_choices,message="Choose the filters you would like to apply to the games list in the order of importance. First being most important and last the least important"):
