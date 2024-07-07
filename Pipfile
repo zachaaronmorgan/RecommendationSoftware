@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 inquirer = "*"
+pandas = "*"
+beautifulsoup4 = "*"
+lxml = "*"
+requests = "*"
 
 [dev-packages]
 

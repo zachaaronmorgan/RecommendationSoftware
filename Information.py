@@ -1,17 +1,30 @@
-import csv
-desired_columns = ['Rank','Game Title','Platform','Year','Genre','Publisher', 'Review']
-with open('videogames.csv', 'r') as videogames_unfiltered:
-    csv_reader = csv.DictReader(videogames_unfiltered)
-    videogames_filtered = []
-    for row in csv_reader:
-        filtered_row = {key: row[key] for key in desired_columns}
-        videogames_filtered.append(filtered_row)
+import pandas as pd
 
-genres = set()
+# print(date[-4:])
+# name, platform, r-date, score, genre, players
+games = pd.read_csv('games-data.csv')
+video_games = []
+for index,game in games.iterrows():
+    video_games.append(game)
+
 platforms = set()
-for game in videogames_filtered:
-    genres.add(game['Genre'])
-    platforms.add(game['Platform'])
+genres = set()
 
+for game in video_games:
+    game['r-date'] = game['r-date'][-4:]
+    for genre in game['genre'].split(','):
+        genres.add(genre.strip())
+    platforms.add(game['platform'])
+    # platforms.add(game['platform'])
+    # genres.add(game['genre'])
+
+# platforms = list(platforms)
+# genres = list(genres)
+
+# print(platforms,'\n')
+# print(genres)
 platforms = list(platforms)
 genres = list(genres)
+
+platforms = sorted(platforms)
+genres = sorted(genres)
