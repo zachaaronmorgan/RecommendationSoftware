@@ -1,0 +1,1 @@
+Hello and thank you so much for downloading my video game recommendation software. The goal of this project was to apply the merge sort algorithm on a given dataset of video games in order to filter for your desired game. Please don't hesitate to leave comments or anything if you think there is something I missed or could add.
