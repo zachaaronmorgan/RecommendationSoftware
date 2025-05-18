@@ -9,8 +9,10 @@ pandas = "*"
 beautifulsoup4 = "*"
 lxml = "*"
 requests = "*"
+rich = "*"
+pyfiglet = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.12"
+python_version = "3.13"

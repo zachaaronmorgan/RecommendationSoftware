@@ -2,9 +2,24 @@ from Information import *
 import inquirer
 import re
 from datetime import datetime as dt
+from rich.console import Console 
+from rich.panel import Panel
+from pyfiglet import figlet_format
 
-def welcome_message(): 
-    print("Hello and welcome to Video Game Recommender 1.0!")
+def welcome_message():
+    console = Console()
+
+    title = figlet_format("Game Recommender", font="slant")
+    console.print(f"[bold blue]{title}[/bold blue]")
+
+    body = (
+        "[bold green]Welcome to Video Game Recommender 1.0![/bold green]\n\n"
+        "🎯 Find games that fit your [cyan]preferences[/cyan].\n"
+        "📊 Filter by [magenta]genre[/magenta], [yellow]platform[/yellow], "
+        "[blue]release year[/blue], and [green]score[/green]."
+    )
+
+    console.print(Panel.fit(body, title="[bold]Let's Get Started[/bold]", border_style="cyan"))
 
 def select_filter(filter_choices,message="Choose the filters you would like to apply to the games list in the order of importance. First being most important and last the least important"):
     game_filters_q = [inquirer.List('filter', message=message, choices=filter_choices)]
